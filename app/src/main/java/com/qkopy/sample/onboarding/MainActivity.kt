@@ -1,13 +1,17 @@
 package com.qkopy.sample.onboarding
 
-import android.support.v7.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
-import com.qkopy.sample.R
+import android.support.v7.app.AppCompatActivity
+import com.qkopy.onboarding.OnBoardActivity
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        startActivity(Intent(this, OnBoardActivity::class.java))
+        finish()
     }
 }
