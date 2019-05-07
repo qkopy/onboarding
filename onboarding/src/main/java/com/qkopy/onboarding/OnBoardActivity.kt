@@ -1,5 +1,6 @@
 package com.qkopy.onboarding
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
 import android.support.v4.view.ViewPager
@@ -68,7 +69,10 @@ class OnBoardActivity : AppCompatActivity() {
         })
 
         buttonGettingStarted.setOnClickListener {
-            Toast.makeText(this@OnBoardActivity, "Redirect to wherever you want", Toast.LENGTH_LONG).show()
+            val returnIntent = Intent()
+            returnIntent.putExtra("onboard", true)
+            setResult(RESULT_OK, returnIntent)
+            finish()
         }
 
         setUiPageViewController()
@@ -156,5 +160,10 @@ class OnBoardActivity : AppCompatActivity() {
         })
 
 
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish()
     }
 }
